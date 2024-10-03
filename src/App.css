@@ -1,0 +1,576 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,700;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comme:wght@100..900&family=McLaren&family=Rowdies:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comme:wght@100..900&family=McLaren&family=Play:wght@400;700&family=Rowdies:wght@300;400;700&family=Rubik+Maze&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* font-family: "Exo 2", sans-serif;
+font-style: normal; */
+
+
+:root {
+    --text-primary: #000;
+    --bgPrimary: #fff;
+    --bgSecondary: #F9F9F9;
+    --pink: #0071bd;
+    --light-blue: #e6f7ff;
+    --border: #d9d9d9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a:hover {
+    color: orange !important;
+}
+
+.app {
+    display: flex;
+    overflow: hidden;
+}
+
+.navbar {
+    flex: 0.17;
+    background-color: rgb(0, 21, 41);
+}
+
+.main {
+    flex: 0.83;
+    width: 100%;
+
+}
+
+.routes {
+    padding: 20px;
+}
+
+.nav-container {
+    position: fixed;
+    left: 0;
+    margin: 10px;
+    height: 100vh;
+    margin: 0px;
+    background-color: rgb(0, 21, 41);
+}
+
+.logo-container {
+    background-color: #001529;
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    margin: 0 0 0 15px;
+}
+
+.logo a {
+    color: white;
+}
+
+.menu-control-container {
+    display: none !important;
+    position: absolute !important;
+    right: 10px !important;
+    top: 25px !important;
+    font-size: 1.2rem !important;
+    background-color: var(--bgSecondary) !important;
+    border: none !important;
+}
+
+.loader {
+    height: 84vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-title {
+    font-size: 2rem !important;
+    font-family: "Play", sans-serif;
+    font-weight: 400;
+}
+
+.show-more {
+    font-size: 0.9rem !important;
+}
+
+@media screen and (max-width:1300px) {
+    .main {
+        margin-left: 50px;
+    }
+}
+
+@media screen and (max-width:1170px) {
+    .main {
+        margin-left: 50px;
+    }
+}
+
+@media screen and (max-width:1000px) {
+    .main {
+        margin-left: 100px;
+    }
+}
+
+@media screen and (max-width:1200px) {
+    .app {
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    .navbar {
+        flex: 1;
+    }
+
+    .main {
+        flex: 1;
+        margin-top: 90px;
+        margin-left: 0px;
+        margin-right: 10px;
+    }
+
+    .nav-container {
+        height: 8vh;
+        position: fixed;
+        width: 100%;
+        z-index: 100;
+        background-color: var(--bgSecondary);
+    }
+
+    .menu-control-container {
+        display: flex !important;
+    }
+
+    .ant-menu {
+        position: absolute;
+        right: 0px;
+    }
+
+    .home-title {
+        font-size: 1.1rem !important;
+    }
+
+    .show-more {
+        font-size: 0.9rem !important;
+    }
+}
+
+.coin-detail-container {
+    margin: 30px;
+}
+
+.coin-heading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-bottom: 1px solid var(--border);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    gap: 10px;
+}
+
+.coin-heading-container .coin-name {
+    font-weight: 900;
+    color: var(--pink);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.coin-heading-container p {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-bottom: 20px;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: space-between;
+    
+    gap: 40px;
+}
+
+.stats-container h2 {
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin-top: 20px;
+    color: var(--pink);
+}
+
+.coin-details-heading {
+    font-weight: 700 !important;
+    margin-top: 20px !important;
+    color: var(--pink) !important;
+}
+
+.coin-stats {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    font-size: 1rem;
+    opacity: 0.9;
+    padding: 20px;
+
+}
+
+.coin-stats-name {
+    display: flex;
+    gap: 10px;
+    font-size: 1rem;
+}
+
+.stats {
+    font-weight: 800;
+}
+
+.coin-value-statistics-heading p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.coin-desc p {
+    display: inline;
+    /* Render paragraphs inline to remove extra line breaks */
+    margin: 0;
+    /* Remove default margins */
+}
+
+.coin-desc a {
+    display: inline;
+    /* Ensure links are displayed inline */
+}
+
+
+.coin-desc-link {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+    padding-top: 20px;
+    flex-direction: column;
+}
+
+.coin-desc-link h2 {
+    font-weight: 700;
+    color: var(--pink);
+}
+
+.coin-desc-link p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.coin-desc-link a {
+    color: var(--pink);
+}
+
+.coin-desc-link h3 {
+    font-weight: 700;
+}
+
+.coin-desc {
+    flex: 0.5;
+}
+
+.coin-links {
+    padding: 0px 20px;
+    flex: 0.5;
+}
+
+.coin-links a {
+    white-space: nowrap;
+    /* Prevent the link from breaking into a new line */
+    overflow: hidden;
+    /* Hide overflow if necessary */
+    text-overflow: ellipsis;
+    /* Optional: show ellipsis for long URLs */
+    display: inline;
+    word-wrap: break-word;
+}
+
+.coin-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    padding: 20px;
+    margin: 5px 0;
+}
+
+.link-name {
+    text-transform: capitalize;
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+.coin-link a {
+    color: var(--pink);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.coin-link:hover,
+.coin-stats:hover {
+    background-color: var(--bgSecondary);
+}
+
+.heading {
+    margin-top: 15px;
+    font-family: "Comme", sans-serif;
+    letter-spacing: 1px;
+}
+
+.head-data-home {
+    margin-top: 25px;
+}
+
+@media screen and (max-width:1000px) {
+    .stats-container {
+        flex-direction: column;
+    }
+
+    .coin-desc-link {
+        flex-direction: column;
+    }
+
+    .stats-container h2 {
+        margin-top: 0px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .coin-links {
+        padding: 0px;
+    }
+
+    .coin-detail-container {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .heading {
+        margin-top: 20px;
+    }
+
+}
+
+.select-news {
+    width: 180px;
+}
+
+.news-card {
+    min-height: 300px !important;
+}
+
+.news-image-container {
+    display: flex !important;
+    justify-content: space-between !important;
+}
+
+.news-title {
+    width: 70%;
+}
+
+.news-image-container img {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+
+.news-card p {
+    color: black;
+    margin: 10px 0px !important;
+}
+
+.provider-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.provider-name {
+    margin-left: 10px;
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    color: #0071bd;
+}
+
+.chart-title {
+    color: #0071bd !important;
+}
+
+.price-container {
+    display: flex !important;
+    gap: 20px !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+}
+
+.price-change {
+    font-weight: 900 !important;
+}
+
+.current-price {
+    margin-top: 0px !important;
+    font-weight: 900 !important;
+}
+
+.home-heading-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    padding: 10px 30px;
+    font-family: "Comme", sans-serif;
+    letter-spacing: 0px;
+    margin-bottom: 20px;
+}
+
+.show-more {
+    margin-top: 0px !important;
+}
+
+.exchange-image {
+    margin: 0px 10px !important;
+}
+
+.search-crypto {
+    margin: 20px auto 30px auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.crypto-card-container {
+    min-height: 65vh !important;
+}
+
+.crypto-card {
+    min-width: 250px;
+}
+
+.crypto-card .crypto-image {
+    width: 50px;
+    margin: 5px;
+    border-radius: 50%;
+}
+
+.select-timeperiod {
+    width: 200px !important;
+    margin-top: 20px !important;
+}
+
+.footer {
+    background-color: #001529;
+    display: flex;
+
+   flex-direction: row-reverse;
+   justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+    bottom: 0;
+
+}
+@media (max-width: 768px) {
+    .footer {
+        
+        font-size: 15px;
+    
+    }
+}
+
+.coin-card-container p {
+    display: flex;
+    justify-content: space-between;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+
+/* Adjust news card container to allow flex-wrap */
+.news-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Ensure each card resizes properly */
+.news-card {
+    flex: 1 1 250px;
+    /* Allow each card to take at least 250px width */
+    margin: 15px;
+    min-width: 250px;
+    /* Prevent cards from getting too narrow */
+    max-width: 100%;
+    /* Prevent cards from expanding too wide */
+    box-sizing: border-box;
+    /* Ensure padding is included in width */
+}
+
+/* Responsive tweaks */
+@media screen and (max-width: 1000px) {
+    .news-card {
+        flex: 1 1 100%;
+        /* Full width on small screens */
+    }
+}
+
+.home-top {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 50px;
+    border: 1px solid black;
+    border-radius: 20px;
+
+}
+
+@media (max-width: 700px) {
+    .home-top {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    .heading {
+        margin-top: 5px;
+    }
+
+    .head-data-home {
+        margin-top: 10px;
+    }
+
+    .home-heading-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 40px;
+        padding: 5px 10px;
+        font-family: "Comme", sans-serif;
+        letter-spacing: 0px;
+
+    }
+}
+
+.coin-rank {
+    font-weight: bold;
+    font-size: 16px;
+    margin-right: 13px;
+    color: #888;
+}
+
+.coin-name {
+    font-size: 18px;
+    font-family: "Kanit", sans-serif;
+  font-weight: 400;
+}
