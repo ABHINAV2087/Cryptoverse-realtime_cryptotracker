@@ -11,10 +11,10 @@ import News from './News';
 import Loader from './Loader';
 
 function Homepage() {
-  // Fetch global crypto stats
+
   const { data, isFetching } = useGetCryptoStatsQuery();
 
-  // Access the stats from data object (data.data contains the response)
+  
   const globalStats = data?.data || {};
 
   if (isFetching) return <Loader />;
@@ -71,7 +71,7 @@ function Homepage() {
                 year: 'numeric',
                 hour: '2-digit',
                 minute: '2-digit',
-                hour12: false, // Set to true for 12-hour format
+                hour12: false, 
               })}
               valueStyle={{
                 color: 'green ',

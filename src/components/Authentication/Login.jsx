@@ -12,20 +12,20 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check if email or password is empty
+    
     if (!email || !password) {
       toast.error("All fields are required!");
       return;
     }
 
     try {
-      // Attempt to sign in the user
+      
       const result = await signInWithEmailAndPassword(auth, email, password);
 
-      // Show a success message
+      
       toast.success(`Login successful! Welcome back ${result.user.email}`);
     } catch (error) {
-      // Handle different login errors
+      
       if (error.code === 'auth/wrong-password') {
         toast.error("Incorrect password!");
       } else if (error.code === 'auth/user-not-found') {

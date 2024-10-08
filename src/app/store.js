@@ -4,8 +4,8 @@ import { cryptoNewsApi } from "../services/cryptoNewsApi";
 
 export default configureStore({
    reducer: {
-    [cryptoApi.reducerPath]: cryptoApi.reducer, // Add the cryptoApi reducer to the store
-    [cryptoNewsApi.reducerPath]: cryptoNewsApi.reducer, // Add the cryptoNewsApi reducer to the store
+    [cryptoApi.reducerPath]: cryptoApi.reducer, 
+    [cryptoNewsApi.reducerPath]: cryptoNewsApi.reducer, 
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(cryptoApi.middleware).concat(cryptoNewsApi.middleware)

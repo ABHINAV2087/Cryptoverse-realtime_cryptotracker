@@ -36,18 +36,18 @@ const Cryptocurrencies = ({ simplified }) => {
       let updatedWatchlist;
   
       if (watchlist?.includes(coin.id)) {
-        // If the coin is already in the watchlist, remove it
+       
         updatedWatchlist = watchlist.filter((id) => id !== coin.id);
         toast.success(`${coin.name} removed from watchlist`);
       } else {
-        // If not, add it to the watchlist
+      
         updatedWatchlist = watchlist ? [...watchlist, coin.id] : [coin.id];
         toast.success(`${coin.name} added to watchlist`);
       }
   
       await setDoc(coinRef, { coins: updatedWatchlist });
       
-      // Update the local watchlist state
+     
       setWatchlist(updatedWatchlist);
       
     } catch (error) {
@@ -144,7 +144,7 @@ const Cryptocurrencies = ({ simplified }) => {
       )}
       <Row gutter={[12, 12]} className="crypto-card-container">
       {filteredCryptos.map((currencyItem) => {
-  const inWatchlist = watchlist?.includes(currencyItem.id) || false; // Move inWatchlist here
+  const inWatchlist = watchlist?.includes(currencyItem.id) || false; 
   return (
     <Col xs={24} sm={12} lg={6} className="crypto-card" key={currencyItem.id}>
       <Card
@@ -190,7 +190,7 @@ const Cryptocurrencies = ({ simplified }) => {
               style={{
                 marginTop: '25px',
                 width: '100%',
-                backgroundColor: inWatchlist ? '#bf0f3b' : 'green', // Change color based on watchlist status
+                backgroundColor: inWatchlist ? '#bf0f3b' : 'green',
               }}
               onClick={(e) => {
                 e.stopPropagation();

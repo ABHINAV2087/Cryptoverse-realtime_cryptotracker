@@ -23,9 +23,8 @@ function LineChart({ id, vsCurrency }) {
   const timeOptions = ['3h', '24h', '7d', '30d', '3m', '1y'];
   const [timeperiod, setTimeperiod] = useState('7d');
   const [historicData, setHistoricData] = useState([]);
-  const [flag, setFlag] = useState(false); // Initialize the flag state
+  const [flag, setFlag] = useState(false); 
 
-  // Mapping time period to API format (days or years as needed)
   const timePeriodMapping = {
     '3h': '3h',
     '24h': '24h',
@@ -40,9 +39,9 @@ function LineChart({ id, vsCurrency }) {
 
   useEffect(() => {
     if (data) {
-      console.log('API Data:', data); // Debug the data from API
+      console.log('API Data:', data); 
       setHistoricData(data.prices);
-      setFlag(true); // Set flag to true once data is fetched
+      setFlag(true); 
     }
   }, [data]);
 
@@ -56,7 +55,7 @@ function LineChart({ id, vsCurrency }) {
         {timeOptions.map((option) => <Select.Option key={option}>{option}</Select.Option>)}
       </Select>
 
-      {/* Loading spinner or Line chart depending on the data */}
+     
       {!historicData.length || flag === false ? (
         <Spin size="large" tip="Loading..." style={{ display: 'block', margin: '20px auto' }} /> // Use Spin for loading
       ) : (

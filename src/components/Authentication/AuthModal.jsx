@@ -30,7 +30,7 @@ const style = {
     p: 4,
 };
 
-const googleProvider = new GoogleAuthProvider(); // Define the googleProvider
+const googleProvider = new GoogleAuthProvider(); 
 
 export default function AuthModal() {
     const [open, setOpen] = useState(false);

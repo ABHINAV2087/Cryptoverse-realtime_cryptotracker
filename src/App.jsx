@@ -35,6 +35,7 @@ function App() {
               <Route path="/exchanges" element={<Exchanges />} />
               <Route path="/cryptocurrencies" element={<Cryptocurrencies />} />
               <Route path="/crypto/:id" element={<CryptoDetails />} />
+              <Route path="/news" element={<News />} />
               <Route path="/watchlist" element={<Watchlist />} />
             </Routes>
           </div>

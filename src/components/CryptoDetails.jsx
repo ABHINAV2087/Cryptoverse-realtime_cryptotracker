@@ -14,7 +14,7 @@ const { Option } = Select;
 
 function CryptoDetails() {
   const { id } = useParams();
-  const [selectedCurrency, setSelectedCurrency] = useState('usd'); // Default currency is USD
+  const [selectedCurrency, setSelectedCurrency] = useState('usd'); 
   const { data, isFetching } = useGetCryptoDetailsQuery(id);
 
   // List of available currencies
@@ -59,7 +59,7 @@ function CryptoDetails() {
   if (isFetching) return <Loader />;
   return (
     <Col className="coin-detail-container">
-      {/* Coin Heading */}
+      
       <Col className="coin-heading-container det" style={{ display: "flex", flexDirection: "row", justifyContent: 'space-around', alignContent: 'end' }}>
         <div>
           <Title level={2} className="coin-name" style={{ letterSpacing: "1px" }}>
@@ -77,9 +77,9 @@ function CryptoDetails() {
         </div>
       </Col>
 
-      {/* Stats Container */}
+      
       <Col className="stats-container">
-        {/* Coin Value Statistics */}
+        
         <Col className="coin-value-statistics">
           <Col className="coin-value-statistics-heading">
             <Title level={3} className="coin-details-heading">{data?.name} Value Statistics</Title>
@@ -96,7 +96,7 @@ function CryptoDetails() {
           ))}
         </Col>
 
-        {/* Other Stats Info */}
+   
         <Col className="other-stats-info">
           <Col className="coin-value-statistics-heading">
             <Title level={3} className="coin-details-heading">Other Stats Info</Title>
@@ -115,7 +115,7 @@ function CryptoDetails() {
       </Col>
       <LineChart id={id} vsCurrency={selectedCurrency} />
       
-      {/* Coin Description and Links */}
+ 
       <Col className="coin-desc-link">
         <Row className="coin-desc">
           <Title level={3} className="coin-details-heading">What is {data?.name}?</Title>

@@ -11,7 +11,7 @@ function Signup() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [loading, setLoading] = useState(false); // For loading state
+  const [loading, setLoading] = useState(false); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,11 +25,11 @@ function Signup() {
       return;
     }
 
-    setLoading(true); // Start loading
+    setLoading(true); 
     try {
       const result = await createUserWithEmailAndPassword(auth, email, password);
       
-      // Update the user profile with the username
+      
       await updateProfile(result.user, { displayName: username });
 
       toast.success(`Sign up successful! Welcome ${result.user.displayName}`);
@@ -44,7 +44,7 @@ function Signup() {
         toast.error("Sign up failed. Please try again!");
       }
     } finally {
-      setLoading(false); // Stop loading
+      setLoading(false); 
     }
   };
 
@@ -171,7 +171,7 @@ function Signup() {
           size="large"
           style={{ backgroundColor: "#05b0fa", marginTop: "20px", borderRadius: "15px" }}
           type="submit"
-          disabled={loading} // Disable button when loading
+          disabled={loading} 
         >
           {loading ? "Signing Up..." : "Sign Up"}
         </Button>

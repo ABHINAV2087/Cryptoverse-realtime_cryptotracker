@@ -7,14 +7,13 @@ import icon from '../assets/logo.png';
 import AuthModal from './Authentication/AuthModal';
 import { CryptoState } from '../CryptoContext';
 
-import { auth } from '../firebase'; // Adjust the path if necessary
-import { signOut } from 'firebase/auth'; // Import signOut function
-
+import { auth } from '../firebase'; 
+import { signOut } from 'firebase/auth';
 const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState(true);
   const [screenSize, setScreenSize] = useState(window.innerWidth);
 
-  const { user } = CryptoState(); // Ensure user is correctly destructured
+  const { user } = CryptoState(); 
 
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
@@ -25,13 +24,13 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    // Update activeMenu based on screen size
+   
     setActiveMenu(screenSize > 1200);
   }, [screenSize]);
 
   const handleLogout = async () => {
     try {
-      await signOut(auth); // Call Firebase signOut method
+      await signOut(auth); 
       console.log("User logged out successfully");
     } catch (error) {
       console.error("Error logging out:", error);
@@ -62,12 +61,12 @@ const Navbar = () => {
                     justifyContent: "center",
                     gap: "12px",
                     fontSize: "20px",
-                    backdropFilter: "blur(10px)", // Blur effect
-                    backgroundColor: "rgba(255, 255, 255, 0.1)", // Semi-transparent white
-                    borderRadius: "10px", // Rounded corners
-                    padding: "10px 20px", // Padding for spacing
-                    border: "1px solid rgba(255, 255, 255, 0.3)", // Light border
-                    boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)", // Subtle shadow
+                    backdropFilter: "blur(10px)", 
+                    backgroundColor: "rgba(255, 255, 255, 0.1)", 
+                    borderRadius: "10px",
+                    padding: "10px 20px", 
+                    border: "1px solid rgba(255, 255, 255, 0.3)", 
+                    boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)", 
                     alignItems:"center",
                     margin:"1px 15px"
                   }}
@@ -85,7 +84,7 @@ const Navbar = () => {
 
                     }}
                   >
-                    Hello <br/>{user.displayName || user.email} {/* Display username or email */}
+                    Hello <br/>{user.displayName || user.email} 
                   </Typography.Text>
                 </div>
 
