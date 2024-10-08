@@ -45,6 +45,7 @@ a:hover {
 
 .routes {
     padding: 20px;
+    min-height: 91vh;
 }
 
 .nav-container {
@@ -193,7 +194,7 @@ a:hover {
 .stats-container {
     display: flex;
     justify-content: space-between;
-    
+
     gap: 40px;
 }
 
@@ -475,18 +476,51 @@ a:hover {
     background-color: #001529;
     display: flex;
 
-   flex-direction: row-reverse;
-   justify-content: space-between;
-    padding: 20px;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: 20px 50px;
     align-items: center;
     bottom: 0;
 
 }
+
+.footer-text {
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: "Kanit", sans-serif;
+    font-weight: 100;
+}
+
+@media (max-width: 768px) {
+    .footer-text {
+        font-size: 0.5rem;
+        /* Slightly smaller for tablets */
+    }
+    .footer {
+        background-color: #001529;
+        display: flex;
+    
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        padding: 10px 10px;
+        align-items: center;
+        bottom: 0;
+    
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-text {
+        font-size: 0.4rem;
+        /* Even smaller for mobile devices */
+    }
+}
+
 @media (max-width: 768px) {
     .footer {
-        
-        font-size: 15px;
-    
+
+        font-size: 12px;
+
     }
 }
 
@@ -572,5 +606,106 @@ a:hover {
 .coin-name {
     font-size: 18px;
     font-family: "Kanit", sans-serif;
-  font-weight: 400;
+    font-weight: 400;
+}
+
+.currency-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+    padding: 20px;
+    margin-top: -20px;
+}
+
+/* Watchlist Header */
+.watchlist-container .watchlist-header {
+    padding: 15px;
+    background-color: #1e1e1e;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+}
+
+/* Watchlist Rows */
+.watchlist-container .watchlist-row {
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    transition: background-color 0.2s ease;
+    margin-bottom: 10px;
+}
+
+.watchlist-container .coin-name {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.watchlist-container .coin-name img {
+    height: 35px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .watchlist-container .watchlist-header {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .watchlist-container .watchlist-row {
+        padding: 10px;
+    }
+
+    .watchlist-row .coin-name {
+        display: flex;
+        flex-direction: column;
+        font-size: 15px;
+        align-items: flex-start;
+
+    }
+
+    .watchlist-row .coin-name img {
+        height: 20px;
+        margin-bottom: -10px;
+        text-align: center;
+    }
+
+
+    .watchlist-container button {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .watchlist-container .remove-btn {
+        margin-left: 0;
+    }
+}
+
+.watchlist-container .remove-btn {
+    background-color: #ff4d4f;
+    /* Red background */
+    border-color: #ff4d4f;
+    /* Red border */
+    color: white;
+    /* White text */
+}
+
+.watchlist-container .remove-btn:hover {
+    background-color: #d9363e;
+    /* Darker red on hover */
+    border-color: #d9363e;
+    /* Darker red border on hover */
+}
+
+@media (max-width: 768px) {
+    .watchlist-container .remove-btn {
+        width: 100%;
+        margin-top: 15px;
+    }
+
 }

@@ -1,9 +1,11 @@
 import react from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import { Layout, Typography, Space } from 'antd';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css'
 import { Navbar, Homepage, CryptoDetails, Cryptocurrencies, News, Exchanges } from './components';
+import Watchlist from './components/Watchlist';
 
 const titleStyle = {
   color: 'white',
@@ -33,20 +35,40 @@ function App() {
               <Route path="/exchanges" element={<Exchanges />} />
               <Route path="/cryptocurrencies" element={<Cryptocurrencies />} />
               <Route path="/crypto/:id" element={<CryptoDetails />} />
-              <Route path="/news" element={<News />} />
+              <Route path="/watchlist" element={<Watchlist />} />
             </Routes>
           </div>
         </Layout>
         <div className="footer">
-          <Space style={{display:"flex",gap:"20px"}}>
+          <Space style={{ display: "flex", gap: "20px" }}>
             <Link to="/">Home</Link>
             <Link to="/exchanges">Exchanges</Link>
             <Link to="/news">News</Link>
+            
           </Space>
-          <Typography.Title level={5  } style={{ color: 'white', textAlign: 'center' }}>Made with ❤️ by <b><i>ABHINAV TIROLE</i></b><br />Copyright © 2024
-          </Typography.Title>
+          <h1
+            
+            style={{
+              color: 'white',
+              textAlign: 'center',
+              fontSize: '1.2rem', // Default font size
+            }}
+            className="footer-text"
+          >
+            Made with ❤️ by <b><i>ABHINAV TIROLE</i></b><br />
+            Copyright © 2024
+            </h1>
+
         </div>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </div>
+
     </div>
   )
 }

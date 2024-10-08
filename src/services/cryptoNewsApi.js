@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 // Update your headers to match the new API's requirements
 const cryptoNewsHeaders = {
-  'x-rapidapi-key': '26f2cce53emsh709f1207472ecc2p141aa6jsn79bc65463b', // 26f2cce53emsh709f1207472ecc2p141aa6jsn79bc65463b87
+  'x-rapidapi-key': import.meta.env.VITE_RAPIDAPI_KEY, // 26f2cce53emsh709f1207472ecc2p141aa6jsn79bc65463b87
   'x-rapidapi-host': 'cryptocurrency-news2.p.rapidapi.com', // Use Vite's environment variable access
 };
 
