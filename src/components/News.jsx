@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Row, Col, Button } from 'antd';
 import moment from 'moment';
-import debounce from 'lodash.debounce'; // Import debounce for search functionality
+import debounce from 'lodash.debounce'; 
 import { useGetCryptoNewsQuery } from '../services/cryptoNewsApi';
 
 import AspectRatio from '@mui/joy/AspectRatio';
@@ -10,54 +10,51 @@ import CardContent from '@mui/joy/CardContent';
 import CardOverflow from '@mui/joy/CardOverflow';
 import Divider from '@mui/joy/Divider';
 import Typography from '@mui/joy/Typography';
-import Input from '@mui/joy/Input'; // Import input from MUI
+import Input from '@mui/joy/Input'; 
 
-// Demo image if no thumbnail is available
 const demoImage = 'https://www.bing.com/th?id=OVFT.mpzuVZnv8dwIMRfQGPbOPC&pid=News';
 
 function News({ simplified }) {
-  const count = simplified ? 6 : 12; // Show fewer articles if simplified
-  const [page, setPage] = useState(1); // Track current page
-  const [newsArticles, setNewsArticles] = useState([]); // State to store all news articles
-  const [searchTerm, setSearchTerm] = useState(''); // State for search term
+  const count = simplified ? 6 : 12; 
+  const [page, setPage] = useState(1); 
+  const [newsArticles, setNewsArticles] = useState([]);
+  const [searchTerm, setSearchTerm] = useState(''); 
 
-  // Fetch crypto news based on current page
   const { data: cryptoNews, error, isFetching } = useGetCryptoNewsQuery({ count, page });
 
-  // Update news articles when new data is fetched
+ 
   useEffect(() => {
     if (cryptoNews?.data) {
       setNewsArticles((prev) => [...prev, ...cryptoNews.data]);
     }
   }, [cryptoNews]);
 
-  // Debounced search function
+ 
   const debouncedSearch = useCallback(
     debounce((value) => {
-      setSearchTerm(value); // Set search term after debounce delay
-    }, 300), // 300ms debounce delay
+      setSearchTerm(value); 
+    }, 300), 
     []
   );
 
-  // Handle search input changes
+  
   const handleSearchChange = (e) => {
-    debouncedSearch(e.target.value); // Call debounced function
+    debouncedSearch(e.target.value); 
   };
 
-  // Filtered news articles based on search term
+ 
   const filteredNews = newsArticles.filter((news) =>
     news.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // Limit the number of news articles when simplified is true
   const displayedNews = simplified ? filteredNews.slice(0, 6) : filteredNews;
 
-  // Handle error state
+
   if (error) return <div>Error: {error.message}</div>;
 
   return (
     <div>
-      {/* Search Bar */}
+      
       {!simplified && (
         <div
           style={{
@@ -65,7 +62,7 @@ function News({ simplified }) {
             justifyContent: 'center',
             alignItems: 'center',
             marginBottom: '20px',
-            minHeight: '100px', // Adjust height as necessary
+            minHeight: '100px', 
           }}
         >
           <Input
@@ -86,7 +83,7 @@ function News({ simplified }) {
         </div>
       )}
 
-      {/* News Cards */}
+   
       <Row gutter={[24, 24]}>
         {displayedNews.map((news, i) => (
           <Col xs={24} sm={12} lg={8} key={i}>
@@ -95,10 +92,10 @@ function News({ simplified }) {
                 variant="outlined"
                 sx={{
                   width: 350,
-                  transition: '0.3s', // Smooth transition
+                  transition: '0.3s', 
                   '&:hover': {
-                    transform: 'scale(0.99)', // Scale down on hover
-                    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)', // Add shadow on hover
+                    transform: 'scale(0.99)', 
+                    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)', 
                   },
                 }}
               >
@@ -145,7 +142,7 @@ function News({ simplified }) {
         ))}
       </Row>
 
-      {/* Load More Button */}
+   
       {!simplified && (
         <div style={{ textAlign: 'center', marginTop: '20px' }}>
           <Button onClick={() => setPage((prev) => prev + 1)} type="primary" loading={isFetching}>

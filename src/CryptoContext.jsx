@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth,db } from "./firebase";  // Ensure you have the correct path
+import { auth,db } from "./firebase";  
 import {  doc,onSnapshot } from "firebase/firestore";
 
 const Crypto = createContext();
@@ -18,7 +18,7 @@ const CryptoProvider = ({ children }) => {
       }
     });
 
-    return () => unsubscribeAuth();  // Clean up Auth state listener
+    return () => unsubscribeAuth();  
   }, []);
 
   useEffect(() => {
@@ -28,13 +28,13 @@ const CryptoProvider = ({ children }) => {
         if (doc.exists()) {
           setWatchlist(doc.data().coins || []);
         } else {
-          setWatchlist([]); // If no watchlist exists, initialize as empty
+          setWatchlist([]); 
         }
       });
 
-      return () => unsubscribeWatchlist(); // Clean up Firestore listener
+      return () => unsubscribeWatchlist(); 
     } else {
-      setWatchlist([]); // Clear watchlist if no user
+      setWatchlist([]); 
     }
   }, [user]);
 
@@ -53,5 +53,5 @@ const CryptoProvider = ({ children }) => {
 
 export default CryptoProvider;
 
-// Custom hook for using CryptoContext easily
+
 export const CryptoState = () => useContext(Crypto);

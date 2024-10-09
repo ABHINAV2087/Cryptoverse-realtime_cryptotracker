@@ -61,7 +61,7 @@ const Watchlist = () => {
                 </Select>
             </div>
 
-            {/* Watchlist Table Header */}
+      
             <Row className="watchlist-header">
                 <Col xs={6} sm={5} md={5} lg={5}>Coin</Col>
                 <Col xs={6} sm={5} md={4} lg={4}>Current Price</Col>
@@ -70,7 +70,7 @@ const Watchlist = () => {
                 
             </Row>
 
-            {/* Watchlist Coins Display */}
+          
             {watchlistCoins.length > 0 ? (
                 watchlistCoins.map((coin) => (
                     <Row key={coin.id} className="watchlist-row">
